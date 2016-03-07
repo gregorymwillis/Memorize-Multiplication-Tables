@@ -16,6 +16,9 @@
 		8920C2101C8D426E0054EB2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8920C20E1C8D426E0054EB2A /* LaunchScreen.storyboard */; };
 		8920C21B1C8D426F0054EB2A /* Memorize_Multiplication_TablesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8920C21A1C8D426F0054EB2A /* Memorize_Multiplication_TablesTests.swift */; };
 		8920C2261C8D426F0054EB2A /* Memorize_Multiplication_TablesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8920C2251C8D426F0054EB2A /* Memorize_Multiplication_TablesUITests.swift */; };
+		8920C2351C8D55990054EB2A /* AnswerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8920C2341C8D55990054EB2A /* AnswerScene.swift */; };
+		8920C2371C8D55AC0054EB2A /* AnswerScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8920C2361C8D55AC0054EB2A /* AnswerScene.sks */; };
+		8920C23A1C8D56CB0054EB2A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8920C2391C8D56CB0054EB2A /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		8920C2211C8D426F0054EB2A /* Memorize Multiplication TablesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Memorize Multiplication TablesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8920C2251C8D426F0054EB2A /* Memorize_Multiplication_TablesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memorize_Multiplication_TablesUITests.swift; sourceTree = "<group>"; };
 		8920C2271C8D426F0054EB2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8920C2341C8D55990054EB2A /* AnswerScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerScene.swift; sourceTree = "<group>"; };
+		8920C2361C8D55AC0054EB2A /* AnswerScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = AnswerScene.sks; sourceTree = "<group>"; };
+		8920C2391C8D56CB0054EB2A /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +107,9 @@
 		8920C2001C8D426E0054EB2A /* Memorize Multiplication Tables */ = {
 			isa = PBXGroup;
 			children = (
+				8920C2381C8D56B00054EB2A /* Providers */,
+				8920C2331C8D55740054EB2A /* Scenes */,
 				8920C2011C8D426E0054EB2A /* AppDelegate.swift */,
-				8920C2031C8D426E0054EB2A /* GameScene.sks */,
-				8920C2051C8D426E0054EB2A /* GameScene.swift */,
 				8920C2071C8D426E0054EB2A /* GameViewController.swift */,
 				8920C2091C8D426E0054EB2A /* Main.storyboard */,
 				8920C20C1C8D426E0054EB2A /* Assets.xcassets */,
@@ -129,6 +135,25 @@
 				8920C2271C8D426F0054EB2A /* Info.plist */,
 			);
 			path = "Memorize Multiplication TablesUITests";
+			sourceTree = "<group>";
+		};
+		8920C2331C8D55740054EB2A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8920C2031C8D426E0054EB2A /* GameScene.sks */,
+				8920C2051C8D426E0054EB2A /* GameScene.swift */,
+				8920C2341C8D55990054EB2A /* AnswerScene.swift */,
+				8920C2361C8D55AC0054EB2A /* AnswerScene.sks */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		8920C2381C8D56B00054EB2A /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				8920C2391C8D56CB0054EB2A /* Colors.swift */,
+			);
+			name = Providers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8920C2041C8D426E0054EB2A /* GameScene.sks in Resources */,
+				8920C2371C8D55AC0054EB2A /* AnswerScene.sks in Resources */,
 				8920C2101C8D426E0054EB2A /* LaunchScreen.storyboard in Resources */,
 				8920C20D1C8D426E0054EB2A /* Assets.xcassets in Resources */,
 				8920C20B1C8D426E0054EB2A /* Main.storyboard in Resources */,
@@ -264,7 +290,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8920C2061C8D426E0054EB2A /* GameScene.swift in Sources */,
+				8920C23A1C8D56CB0054EB2A /* Colors.swift in Sources */,
 				8920C2081C8D426E0054EB2A /* GameViewController.swift in Sources */,
+				8920C2351C8D55990054EB2A /* AnswerScene.swift in Sources */,
 				8920C2021C8D426E0054EB2A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
