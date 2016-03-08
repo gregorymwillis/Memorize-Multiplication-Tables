@@ -10,11 +10,15 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    static var controller: GameViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        GameViewController.controller = self
 
-        if let scene = GameScene(fileNamed:"GameScene") {
+        if let scene = TitleScene(fileNamed:"TitleScene") {
             // Configure the view.
             let skView = self.view as! SKView
             
@@ -26,6 +30,11 @@ class GameViewController: UIViewController {
             
             skView.presentScene(scene)
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func shouldAutorotate() -> Bool {

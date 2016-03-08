@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Xs8-5H-lJO">
+            <objects>
+                <navigationController id="coE-Y8-10f" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ayS-Bf-WXB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GMP-F8-BLC" kind="relationship" relationship="rootViewController" id="Kjt-kS-HZT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="42D-Kg-ur3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-527" y="-283"/>
+        </scene>
+        <!--Settings Scene View Controller-->
+        <scene sceneID="ldZ-5l-IWU">
+            <objects>
+                <viewController storyboardIdentifier="Settings" id="GMP-F8-BLC" customClass="SettingsSceneViewController" customModule="Memorize_Multiplication_Tables" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NjL-hm-PuP"/>
+                        <viewControllerLayoutGuide type="bottom" id="Y5I-Ir-62r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KzV-Fr-HwG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AFd-l8-m20">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Vbl-bC-9Sg">
+                            <connections>
+                                <action selector="clickedDone:" destination="GMP-F8-BLC" id="E6O-7E-lWS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LAe-n3-mgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="205" y="-283"/>
+        </scene>
+    </scenes>
+</document>

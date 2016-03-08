@@ -26,21 +26,9 @@ class GameScene: SKScene {
         pickRandomNumber()
         spawnNumber()
         spawnTimesOperator()
-        spawnAnswerButton()
-        
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        
-//        for touch in touches {
-//            
-//        }
+        answerButton = spawnAnswerButton()
     }
    
-    override func update(currentTime: CFTimeInterval) {
-
-    }
 }
 
 // MARK: - Spawn Functions
@@ -63,7 +51,7 @@ extension GameScene {
         return timesOperator
     }
     
-    func spawnAnswerButton() {
+    func spawnAnswerButton() -> UIButton {
         let answerButton = UIButton(frame: CGRect(x: 100, y: 100, width: 200, height: 70))
         answerButton.center = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetHeight(self.frame) * 0.85)
         answerButton.backgroundColor = Colors.offBlackColor
@@ -75,6 +63,7 @@ extension GameScene {
         answerButton.setTitleColor(Colors.offWhiteColor, forState: UIControlState.Normal)
         answerButton.addTarget(self, action: Selector("goToAnswer"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view?.addSubview(answerButton)
+        return answerButton
     }
 }
 
@@ -95,17 +84,19 @@ extension GameScene {
     }
     
     func goToAnswer() {
-        answerButton?.removeFromSuperview()
+        if let answerButton = answerButton {
+            answerButton.removeFromSuperview()
+        } else {
+            assert(answerButton != nil, "Answer Button is nil")
+        }
         
-        
-            if let scene = AnswerScene(fileNamed: "AnswerScene") {
-                let skView = self.view! as SKView
-                skView.ignoresSiblingOrder = true
-                scene.scaleMode = .ResizeFill
-                scene.answerNumber = answer
-                skView.presentScene(scene)
-            }
-        
+        if let scene = AnswerScene(fileNamed: "AnswerScene") {
+            let skView = self.view! as SKView
+            skView.ignoresSiblingOrder = true
+            scene.scaleMode = .ResizeFill
+            scene.answerNumber = answer
+            skView.presentScene(scene)
+        }
     }
     
     func pickRandomNumber() -> Int {
