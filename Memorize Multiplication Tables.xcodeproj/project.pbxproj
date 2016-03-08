@@ -140,8 +140,8 @@
 		8920C2331C8D55740054EB2A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8920C2031C8D426E0054EB2A /* GameScene.sks */,
 				8920C2051C8D426E0054EB2A /* GameScene.swift */,
+				8920C2031C8D426E0054EB2A /* GameScene.sks */,
 				8920C2341C8D55990054EB2A /* AnswerScene.swift */,
 				8920C2361C8D55AC0054EB2A /* AnswerScene.sks */,
 			);
@@ -522,6 +522,7 @@
 				8920C22C1C8D426F0054EB2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8920C22D1C8D426F0054EB2A /* Build configuration list for PBXNativeTarget "Memorize Multiplication TablesTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +531,7 @@
 				8920C22F1C8D426F0054EB2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8920C2301C8D426F0054EB2A /* Build configuration list for PBXNativeTarget "Memorize Multiplication TablesUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +540,7 @@
 				8920C2321C8D426F0054EB2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
