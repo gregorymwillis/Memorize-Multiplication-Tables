@@ -14,6 +14,7 @@ class GameScene: SKScene {
     
     var answerButton: UIButton?
     var touchLocation: CGPoint!
+    var backButton: UIBarButtonItem!
 
     var numberOneArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     var numberTwoArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -24,13 +25,14 @@ class GameScene: SKScene {
 
     override func didMoveToView(view: SKView) {
         if let controller = GameViewController.controller {
-            controller.navigationController?.setNavigationBarHidden(true, animated: true)
+            controller.navigationController?.setNavigationBarHidden(false, animated: true)
         }
         backgroundColor = Colors.darkRedColor
         pickRandomNumber()
         spawnNumber()
         spawnTimesOperator()
         answerButton = spawnAnswerButton()
+        spawnBackButton()
     }
    
     
@@ -69,6 +71,20 @@ extension GameScene {
         answerButton.addTarget(self, action: Selector("goToAnswer"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view?.addSubview(answerButton)
         return answerButton
+    }
+    
+    func spawnBackButton() {
+        let backButton = UIBarButtonItem(title: "Back", style: .Plain, target: self, action: Selector("clickedDone:"))
+        backButton.tintColor = Colors.offWhiteColor
+        
+        if let answerVC = GameViewController.controller {
+            answerVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            answerVC.navigationController!.navigationBar.barTintColor = Colors.darkRedColor
+            answerVC.navigationItem.leftBarButtonItem = backButton
+        } else {
+            assert(nil != GameViewController.controller, "GameViewController is nil")
+        }
+
     }
 }
 
@@ -112,5 +128,18 @@ extension GameScene {
         answer = randomNumberOne * randomNumberTwo
         return answer
 
+    }
+    
+    func clickedDone(sender: UIBarButtonItem) {
+        transitionToGameScene()
+    }
+    
+    func transitionToGameScene() {
+        answerButton?.removeFromSuperview()
+        if let skView = view, scene = TitleScene(fileNamed: "TitleScene") {
+            skView.ignoresSiblingOrder = true
+            scene.scaleMode = .ResizeFill
+            skView.presentScene(scene, transition: SKTransition.crossFadeWithDuration(0.3))
+        }
     }
 }

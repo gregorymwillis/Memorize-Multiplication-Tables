@@ -21,8 +21,8 @@
 		8920C23A1C8D56CB0054EB2A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8920C2391C8D56CB0054EB2A /* Colors.swift */; };
 		89E452901C8F29D900886C64 /* TitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 89E4528F1C8F29D900886C64 /* TitleScene.sks */; };
 		89E452921C8F29E900886C64 /* TitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E452911C8F29E900886C64 /* TitleScene.swift */; };
-		89E4529B1C8F457200886C64 /* SettingsSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4529A1C8F457200886C64 /* SettingsSceneViewController.swift */; };
-		89E4529E1C8F499200886C64 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E4529D1C8F499200886C64 /* Settings.storyboard */; };
+		89E452A01C8FF3E200886C64 /* SettingsScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 89E4529F1C8FF3E200886C64 /* SettingsScene.sks */; };
+		89E452A21C8FF40500886C64 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E452A11C8FF40500886C64 /* SettingsScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +63,8 @@
 		8920C2391C8D56CB0054EB2A /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		89E4528F1C8F29D900886C64 /* TitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TitleScene.sks; sourceTree = "<group>"; };
 		89E452911C8F29E900886C64 /* TitleScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleScene.swift; sourceTree = "<group>"; };
-		89E4529A1C8F457200886C64 /* SettingsSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSceneViewController.swift; sourceTree = "<group>"; };
-		89E4529D1C8F499200886C64 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		89E4529F1C8FF3E200886C64 /* SettingsScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SettingsScene.sks; sourceTree = "<group>"; };
+		89E452A11C8FF40500886C64 /* SettingsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +153,8 @@
 				8920C2361C8D55AC0054EB2A /* AnswerScene.sks */,
 				89E452911C8F29E900886C64 /* TitleScene.swift */,
 				89E4528F1C8F29D900886C64 /* TitleScene.sks */,
+				89E452A11C8FF40500886C64 /* SettingsScene.swift */,
+				89E4529F1C8FF3E200886C64 /* SettingsScene.sks */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -169,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				8920C2071C8D426E0054EB2A /* GameViewController.swift */,
-				89E4529A1C8F457200886C64 /* SettingsSceneViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -179,7 +180,6 @@
 			children = (
 				8920C2091C8D426E0054EB2A /* Main.storyboard */,
 				8920C20E1C8D426E0054EB2A /* LaunchScreen.storyboard */,
-				89E4529D1C8F499200886C64 /* Settings.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -290,11 +290,11 @@
 			files = (
 				8920C2041C8D426E0054EB2A /* GameScene.sks in Resources */,
 				8920C2371C8D55AC0054EB2A /* AnswerScene.sks in Resources */,
-				89E4529E1C8F499200886C64 /* Settings.storyboard in Resources */,
 				8920C2101C8D426E0054EB2A /* LaunchScreen.storyboard in Resources */,
 				8920C20D1C8D426E0054EB2A /* Assets.xcassets in Resources */,
 				8920C20B1C8D426E0054EB2A /* Main.storyboard in Resources */,
 				89E452901C8F29D900886C64 /* TitleScene.sks in Resources */,
+				89E452A01C8FF3E200886C64 /* SettingsScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,7 +324,7 @@
 				8920C2081C8D426E0054EB2A /* GameViewController.swift in Sources */,
 				8920C2351C8D55990054EB2A /* AnswerScene.swift in Sources */,
 				8920C2021C8D426E0054EB2A /* AppDelegate.swift in Sources */,
-				89E4529B1C8F457200886C64 /* SettingsSceneViewController.swift in Sources */,
+				89E452A21C8FF40500886C64 /* SettingsScene.swift in Sources */,
 				89E452921C8F29E900886C64 /* TitleScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

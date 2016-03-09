@@ -17,6 +17,9 @@ class TitleScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         backgroundColor = Colors.darkRedColor
+        if let controller = GameViewController.controller {
+            controller.navigationController?.setNavigationBarHidden(true, animated: true)
+        }
         spawnGameTitle()
         spawnPlayButton()
         spawnSettingsButton()
@@ -91,9 +94,13 @@ extension TitleScene {
     }
     
     func goToSettings() {
-        if let controller = GameViewController.controller, navigationController = controller.navigationController {
-            let settingsVC = UIStoryboard(name: "Settings", bundle: nil).instantiateViewControllerWithIdentifier("Settings")
-            navigationController.pushViewController(settingsVC, animated: true)
+        playButton.removeFromSuperview()
+        settingsButton.removeFromSuperview()
+        gameTitle.removeFromSuperview()
+        if let skView = view, scene = SettingsScene(fileNamed: "SettingsScene") {
+            skView.ignoresSiblingOrder = true
+            scene.scaleMode = .ResizeFill
+            skView.presentScene(scene, transition: SKTransition.crossFadeWithDuration(0.3))
         }
     }
 }
