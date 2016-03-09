@@ -23,6 +23,9 @@ class GameScene: SKScene {
     var answer: Int!
 
     override func didMoveToView(view: SKView) {
+        if let controller = GameViewController.controller {
+            controller.navigationController?.setNavigationBarHidden(true, animated: true)
+        }
         backgroundColor = Colors.darkRedColor
         pickRandomNumber()
         spawnNumber()
