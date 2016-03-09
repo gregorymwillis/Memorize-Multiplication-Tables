@@ -6,17 +6,26 @@
 //  Copyright © 2016 Willis Programming. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import SpriteKit
 
 class AnswerScene: SKScene {
     
     var answerNumber: Int!
-    
+    var backButton: UIBarButtonItem!
+    let answerVC = GameViewController.controller
+
     override func didMoveToView(view: SKView) {
         backgroundColor = Colors.offBlackColor
         spawnAnswer()
         waitThenTransition()
+        backButton.title = "Back"
+        backButton.target = self
+        backButton.action = "clickedDone"
+        backButton.style = .Plain
+        
+        answerVC?.navigationController?.setNavigationBarHidden(false, animated: false)
+        answerVC?.navigationController?.setToolbarItems([backButton], animated: false)
     }
     
     func spawnAnswer() {
@@ -46,5 +55,11 @@ class AnswerScene: SKScene {
         }
         runAction(SKAction.sequence([wait, transition]))
     }
-    
+
+    func clickedDone(sender: UIBarButtonItem) {
+        answerVC!.navigationController?.popViewControllerAnimated(true)
+    }
+
 }
+
+
