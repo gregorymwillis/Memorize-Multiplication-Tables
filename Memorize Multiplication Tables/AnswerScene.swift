@@ -13,19 +13,19 @@ class AnswerScene: SKScene {
     
     var answerNumber: Int!
     var backButton: UIBarButtonItem!
-    let answerVC = GameViewController.controller
 
     override func didMoveToView(view: SKView) {
         backgroundColor = Colors.offBlackColor
         spawnAnswer()
         waitThenTransition()
-        backButton.title = "Back"
-        backButton.target = self
-        backButton.action = "clickedDone"
-        backButton.style = .Plain
-        
-        answerVC?.navigationController?.setNavigationBarHidden(false, animated: false)
-        answerVC?.navigationController?.setToolbarItems([backButton], animated: false)
+        let backButton = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: Selector("clickedDone:"))
+
+        if let answerVC = GameViewController.controller {
+            answerVC.navigationController?.setNavigationBarHidden(false, animated: true)
+            answerVC.navigationItem.leftBarButtonItem = backButton
+        } else {
+            assert(nil != GameViewController.controller, "GameViewController is nil")
+        }
     }
     
     func spawnAnswer() {
@@ -46,18 +46,21 @@ class AnswerScene: SKScene {
         
         let wait = SKAction.waitForDuration(4)
         let transition = SKAction.runBlock {
-            if let scene = GameScene(fileNamed: "GameScene") {
-                let skView = self.view! as SKView
-                skView.ignoresSiblingOrder = true
-                scene.scaleMode = .ResizeFill
-                skView.presentScene(scene)
-            }
+            self.transitionToGameScene()
         }
         runAction(SKAction.sequence([wait, transition]))
     }
 
     func clickedDone(sender: UIBarButtonItem) {
-        answerVC!.navigationController?.popViewControllerAnimated(true)
+        transitionToGameScene()
+    }
+
+    func transitionToGameScene() {
+        if let skView = view, scene = GameScene(fileNamed: "GameScene") {
+            skView.ignoresSiblingOrder = true
+            scene.scaleMode = .ResizeFill
+            skView.presentScene(scene, transition: SKTransition.crossFadeWithDuration(0.3))
+        }
     }
 
 }
