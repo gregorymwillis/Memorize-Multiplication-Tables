@@ -12,17 +12,23 @@ import SpriteKit
 class SettingsScene: SKScene {
     
     var backButton: UIBarButtonItem!
-    var multiNumberSettingLabel: UILabel!
-    var multiNumberSettingTextField: UITextField!
+    var multiplierSettingLabel: UILabel!
+    var multiplierSettingTextField: UITextField!
     
-    var multiNumberSetting: Int!
+    var multiplierSetting: Int? = nil
     
     
     override func didMoveToView(view: SKView) {
         backgroundColor = Colors.darkRedColor
         spawnBackButton()
-        multiNumberSettingLabel = spawnMultiNumberSettingLabel()
-        multiNumberSettingTextField = spawnMultiNumberSettingTextField()
+        multiplierSettingLabel = spawnMultiplierSettingLabel()
+        multiplierSettingTextField = spawnMultiplierSettingTextField()
+        getUserDefaults()
+    }
+    
+    override func willMoveFromView(view: SKView) {
+        setUserDefaults()
+
     }
 }
 
@@ -42,28 +48,56 @@ extension SettingsScene {
         }
     }
     
-    func spawnMultiNumberSettingLabel() -> UILabel {
-        multiNumberSettingLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 20))
-        if let multiNumberSettingLabel = multiNumberSettingLabel {
-            multiNumberSettingLabel.textColor = Colors.offWhiteColor
-            multiNumberSettingLabel.font = UIFont(name: "Futura", size: 20)
-            multiNumberSettingLabel.center = CGPoint(x: CGRectGetMaxX(self.frame) * 0.4, y: CGRectGetMaxY(self.frame) * 0.11)
-            multiNumberSettingLabel.textAlignment = .Left
-            multiNumberSettingLabel.text = "Set Multiplication Number"
-            view!.addSubview(multiNumberSettingLabel)
+    func spawnMultiplierSettingLabel() -> UILabel {
+        multiplierSettingLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 20))
+        if let multiplierSettingLabel = multiplierSettingLabel {
+            multiplierSettingLabel.textColor = Colors.offWhiteColor
+            multiplierSettingLabel.font = UIFont(name: "Futura", size: 20)
+            multiplierSettingLabel.center = CGPoint(x: CGRectGetMaxX(self.frame) * 0.4, y: CGRectGetMaxY(self.frame) * 0.11)
+            multiplierSettingLabel.textAlignment = .Left
+            multiplierSettingLabel.text = "Set Multiplier"
+            view!.addSubview(multiplierSettingLabel)
         }
-        return multiNumberSettingLabel
+        return multiplierSettingLabel
     }
     
-    func spawnMultiNumberSettingTextField() -> UITextField {
-        multiNumberSettingTextField = UITextField(frame: CGRect(x: CGRectGetMaxX(self.frame) * 0.8, y: CGRectGetMaxY(self.frame) * 0.1, width: 40, height: 20))
-        if let multiNumberSettingTextField = multiNumberSettingTextField {
-            multiNumberSettingTextField.backgroundColor = Colors.offWhiteColor
-            view?.addSubview(multiNumberSettingTextField)
+    func spawnMultiplierSettingTextField() -> UITextField {
+        multiplierSettingTextField = UITextField(frame: CGRect(x: CGRectGetMaxX(self.frame) * 0.8, y: CGRectGetMaxY(self.frame) * 0.1, width: 40, height: 20))
+        if let multiplierSettingTextField = multiplierSettingTextField {
+            multiplierSettingTextField.backgroundColor = Colors.offWhiteColor
+            view?.addSubview(multiplierSettingTextField)
         }
 
-        multiNumberSetting = Int(multiNumberSettingTextField.text!) ?? nil
-        return multiNumberSettingTextField
+        return multiplierSettingTextField
+    }
+}
+
+// MARK: - User Default functions
+extension SettingsScene {
+    
+    func setUserDefaults() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if multiplierSettingTextField.text == "" {
+            defaults.setValue(nil, forKey: "multiplierSetting")
+        } else {
+            multiplierSetting = Int(multiplierSettingTextField.text!)
+            defaults.setValue(multiplierSetting, forKey: "multiplierSetting")
+        }
+        
+    }
+    
+    func getUserDefaults() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        multiplierSetting = Int(defaults.integerForKey("multiplierSetting"))
+        
+        if multiplierSetting == nil {
+            multiplierSettingTextField.text = ""
+        } else {
+            multiplierSettingTextField.text = "\(multiplierSetting)"
+        }
+        
+        
     }
 }
 
@@ -75,8 +109,8 @@ extension SettingsScene {
     }
     
     func transitionToGameScene() {
-        multiNumberSettingLabel.removeFromSuperview()
-        multiNumberSettingTextField.removeFromSuperview()
+        multiplierSettingLabel.removeFromSuperview()
+        multiplierSettingTextField.removeFromSuperview()
         
         if let skView = view, scene = TitleScene(fileNamed: "TitleScene") {
             skView.ignoresSiblingOrder = true
